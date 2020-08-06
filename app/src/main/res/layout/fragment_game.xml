@@ -4,20 +4,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="game.GameFragment">
 
+    <data>
+        <variable
+            name="game"
+            type="com.example.pokequiz.game.GameFragment" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/gameConstraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/glHorizontalStart"
+            app:layout_constraintGuide_begin="@dimen/margin_outside"
+            android:orientation="horizontal" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/glHorizontalEnd"
+            app:layout_constraintGuide_end="@dimen/margin_outside"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:id="@+id/tvQuestionNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/margin_answer_outside"
+            app:layout_constraintTop_toTopOf="@id/glHorizontalStart"
+            tools:text="Question 1" />
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_inside"
+            android:textSize="22sp"
+            android:layout_marginStart="@dimen/margin_outside"
+            android:layout_marginEnd="@dimen/margin_outside"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvQuestionNumber"
+            tools:text="What Pokemon does Pikachu evolve into?" />
+
+        <RadioGroup
+            android:id="@+id/questionRadioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_answer_outside"
+            android:layout_marginTop="@dimen/margin_answer_top"
+            android:layout_marginEnd="@dimen/margin_answer_outside"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvQuestion">
+
+            <RadioButton
+                android:id="@+id/firstAnswerRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_inside"
+                android:checked="true"
+                android:text="@{game.answers[0]}"
+                android:textSize="@dimen/answer_text_size"
+                tools:text="Jolteon" />
+
+            <RadioButton
+                android:id="@+id/secondAnswerRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_inside"
+                android:text="@{game.answers[1]}"
+                android:textSize="@dimen/answer_text_size"
+                tools:text="Electivire" />
+
+            <RadioButton
+                android:id="@+id/thirdAnswerRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_inside"
+                android:text="@{game.answers[2]}"
+                android:textSize="@dimen/answer_text_size"
+                tools:text="Raichu" />
+
+            <RadioButton
+                android:id="@+id/fourthAnswerRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{game.answers[3]}"
+                android:textSize="@dimen/answer_text_size"
+                tools:text="Meowstic" />
+        </RadioGroup>
 
         <Button
             android:id="@+id/submitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/submit"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/margin_inside"
+            app:layout_constraintBottom_toBottomOf="@id/glHorizontalEnd"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
