@@ -8,22 +8,22 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.example.pokequiz.R
-import com.example.pokequiz.databinding.FragmentGameBinding
+import com.example.pokequiz.databinding.FragmentGameOverBinding
 
-class GameFragment : Fragment() {
+class GameOverFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentGameBinding>(
-                inflater,
-                R.layout.fragment_game,
-                container,
-                false )
+        val binding = DataBindingUtil.inflate<FragmentGameOverBinding>(
+            inflater,
+            R.layout.fragment_game_over,
+            container,
+            false)
 
-        binding.submitButton.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_gameFragment_to_gameOverFragment)
+        binding.playAgainButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_gameOverFragment_to_gameFragment)
         )
 
         return binding.root
