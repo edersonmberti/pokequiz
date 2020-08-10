@@ -22,9 +22,13 @@ class GameOverFragment : Fragment() {
             container,
             false)
 
+        val args = arguments?.let { GameOverFragmentArgs.fromBundle(it) }
+
         binding.playAgainButton.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_gameOverFragment_to_gameFragment)
         )
+
+        binding.tvScore.text = args?.score.toString()
 
         return binding.root
     }

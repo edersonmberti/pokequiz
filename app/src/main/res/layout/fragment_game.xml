@@ -35,9 +35,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_inside"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="@dimen/margin_answer_outside"
+            android:layout_marginStart="@dimen/margin_outside"
             app:layout_constraintTop_toTopOf="@id/glHorizontalStart"
-            tools:text="Question 1" />
+            android:text="@{game.currentQuestionText}"
+            tools:text="Question 1"/>
 
         <TextView
             android:id="@+id/tvQuestion"
@@ -50,6 +51,7 @@
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvQuestionNumber"
+            android:text="@{game.currentText}"
             tools:text="What Pokemon does Pikachu evolve into?" />
 
         <RadioGroup
@@ -72,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_inside"
                 android:checked="true"
-                android:text="@{game.answers[0]}"
+                android:text="@{game.currentAnswers[0]}"
                 android:textSize="@dimen/answer_text_size"
                 tools:text="Jolteon" />
 
@@ -81,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_inside"
-                android:text="@{game.answers[1]}"
+                android:text="@{game.currentAnswers[1]}"
                 android:textSize="@dimen/answer_text_size"
                 tools:text="Electivire" />
 
@@ -90,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_inside"
-                android:text="@{game.answers[2]}"
+                android:text="@{game.currentAnswers[2]}"
                 android:textSize="@dimen/answer_text_size"
                 tools:text="Raichu" />
 
@@ -98,9 +100,10 @@
                 android:id="@+id/fourthAnswerRadioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{game.answers[3]}"
+                android:text="@{game.currentAnswers[3]}"
                 android:textSize="@dimen/answer_text_size"
                 tools:text="Meowstic" />
+
         </RadioGroup>
 
         <Button
